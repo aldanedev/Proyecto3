@@ -15,3 +15,7 @@ spring:
           uri: lb://customerService
           predicates:
             - Path=/api/v1/customers/**
+        - id: prj-account-mngt-bank
+          uri: lb://prj-account-mngt-bank
+          predicates:
+            - Path=/api/v1/accounts/**
