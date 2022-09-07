@@ -1,0 +1,17 @@
+server:
+  port: 8080
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${REGISTRY_SERVICE_URL}
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: customerService
+          uri: lb://customerService
+          predicates:
+            - Path=/api/v1/customers/**

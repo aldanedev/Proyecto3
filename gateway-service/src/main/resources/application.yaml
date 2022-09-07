@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: gatewayService
+  config:
+    import: configserver:${CONFIG_SERVICE_URL}
