@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: prj-account-mngt-bank
+  cloud:
+    config:
+      uri: http://localhost:8084
+      username: root
+      password: cl@v3
