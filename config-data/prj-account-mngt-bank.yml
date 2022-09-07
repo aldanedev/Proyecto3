@@ -1,5 +1,11 @@
 server: 
     port: 8085
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: dbprojectbank
 eureka:
   client:
     service-url:
