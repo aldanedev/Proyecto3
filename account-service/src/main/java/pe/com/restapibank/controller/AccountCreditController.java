@@ -17,56 +17,55 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("account_credit")
+@RequestMapping("/api/v1/accounts/account_credit")
 @Log4j2
 public class AccountCreditController {
 
 	@Autowired
 	private IAccountCreditService accountCreditService;
-	
+
 	@GetMapping
-	public ResponseEntity<Flux<AccountCredit>> getAll(){
+	public ResponseEntity<Flux<AccountCredit>> getAll() {
 		log.info("*************************************************************");
 		log.info("*****Inicio: Listar Cuenta de crédito*****");
 		log.info("*************************************************************");
 		Flux<AccountCredit> getAll = accountCreditService.findAll();
-		return new ResponseEntity<Flux<AccountCredit>>(getAll,HttpStatus.OK);
+		return new ResponseEntity<Flux<AccountCredit>>(getAll, HttpStatus.OK);
 	}
-	
-    @GetMapping("/{id}")
-    public ResponseEntity<Flux<AccountCredit>> findById(@PathVariable Integer id){
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Flux<AccountCredit>> findById(@PathVariable Integer id) {
 		log.info("*************************************************************");
 		log.info("*****Inicio: Listar Cuenta de crédito por id*****");
 		log.info("*************************************************************");
-    	Flux<AccountCredit> p = accountCreditService.findById(id);
-        return new ResponseEntity<Flux<AccountCredit>>(p, HttpStatus.OK);
-    }
-    
-    @GetMapping("/client/{id}")
-    public ResponseEntity<Flux<AccountCredit>> findByIdClient(@PathVariable Integer id){
+		Flux<AccountCredit> p = accountCreditService.findById(id);
+		return new ResponseEntity<Flux<AccountCredit>>(p, HttpStatus.OK);
+	}
+
+	@GetMapping("/client/{id}")
+	public ResponseEntity<Flux<AccountCredit>> findByIdClient(@PathVariable Integer id) {
 		log.info("*************************************************************");
 		log.info("*****Inicio: Listar Cuenta de crédito por id*****");
 		log.info("*************************************************************");
-    	Flux<AccountCredit> p = accountCreditService.findByIdClient(id);
-        return new ResponseEntity<Flux<AccountCredit>>(p, HttpStatus.OK);
-    }
-    
+		Flux<AccountCredit> p = accountCreditService.findByIdClient(id);
+		return new ResponseEntity<Flux<AccountCredit>>(p, HttpStatus.OK);
+	}
+
 	@PostMapping
-	public Mono<AccountCredit> create(@RequestBody AccountCredit account_saving){
+	public Mono<AccountCredit> create(@RequestBody AccountCredit account_saving) {
 		return accountCreditService.create(account_saving);
 	}
-	    
+
 	@PostMapping("/creditpersonal")
-	public Mono<AccountCredit> saveAccCreditByClient(@RequestBody AccountCredit accountCredit){
+	public Mono<AccountCredit> saveAccCreditByClient(@RequestBody AccountCredit accountCredit) {
 		log.info("*****Inicio: saveAccSavingByClientPersonnel*****");
 		return accountCreditService.saveAccountCreditByClient(accountCredit);
 	}
-	
-    
-    @DeleteMapping("/delete")
-    public ResponseEntity<Mono<Void>> delete(@RequestBody AccountCredit account_saving ){
-    	Mono<Void> p = accountCreditService.delete(account_saving);
-        return new ResponseEntity<Mono<Void>>(p, HttpStatus.NO_CONTENT);
-    }
-    
+
+	@DeleteMapping("/delete")
+	public ResponseEntity<Mono<Void>> delete(@RequestBody AccountCredit account_saving) {
+		Mono<Void> p = accountCreditService.delete(account_saving);
+		return new ResponseEntity<Mono<Void>>(p, HttpStatus.NO_CONTENT);
+	}
+
 }

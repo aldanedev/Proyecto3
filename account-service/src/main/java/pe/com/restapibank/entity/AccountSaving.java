@@ -10,21 +10,22 @@ import lombok.Data;
 @Document(collection = "account_saving")
 public class AccountSaving {
 
-	@Id
-	private Integer idSaving;
-	private String typeSaving;
-	private String typeCurrency;
-	private String typeAccount;
-	private String accountNumber;
-	private LocalDateTime depositDate;
-	private Double balance;
-	private Double interest;
-	private Integer idClient;
-	private Integer numberMovMonth;
-	private Integer numberMovMax;
-	private Integer interbankAccount;
-	
-	@Override
+    @Id
+    private Integer idSaving;
+    private String typeSaving;
+    private String typeCurrency;
+    private String typeAccount;
+    private String accountNumber;
+    private LocalDateTime depositDate;
+    private Double balance;
+    private Double interest;
+    private Integer idClient;
+    private Integer numberMovMonth;
+    private Integer numberMovMax;
+    private Integer interbankAccount;
+    private String customerId;
+
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
@@ -48,5 +49,5 @@ public class AccountSaving {
             return false;
         return true;
     }
-	
+
 }

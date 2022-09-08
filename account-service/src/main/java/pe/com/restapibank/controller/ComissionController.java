@@ -19,47 +19,46 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/comission")
+@RequestMapping("/api/v1/accounts/comission")
 @Slf4j
 public class ComissionController {
-	
+
 	@Autowired
 	private IComissionService comissionService;
-	
+
 	@GetMapping
-	public ResponseEntity<Flux<Comission>> getAll(){
+	public ResponseEntity<Flux<Comission>> getAll() {
 		Flux<Comission> getAll = comissionService.getAll();
 		log.info("*************************************************************");
 		log.info("*****Inicio: Listar Comission*****");
 		log.info("*************************************************************");
-		return new ResponseEntity<Flux<Comission>>(getAll,HttpStatus.OK);
+		return new ResponseEntity<Flux<Comission>>(getAll, HttpStatus.OK);
 	}
-	
-    @GetMapping("/{id}")
-    public ResponseEntity<Flux<Comission>> findById(@PathVariable Integer id){
-    	Flux<Comission> p = comissionService.findById(id);
-        return new ResponseEntity<Flux<Comission>>(p, HttpStatus.OK);
-    }
-    
-    
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Flux<Comission>> findById(@PathVariable Integer id) {
+		Flux<Comission> p = comissionService.findById(id);
+		return new ResponseEntity<Flux<Comission>>(p, HttpStatus.OK);
+	}
+
 	@PostMapping
-	public ResponseEntity<Mono<Comission>> create (@RequestBody Comission Comission){
+	public ResponseEntity<Mono<Comission>> create(@RequestBody Comission Comission) {
 		log.info("*****Inicio: Crear Comissiona*****");
 		log.info("*************************************************************");
 		Mono<Comission> p = comissionService.create(Comission);
 		return new ResponseEntity<Mono<Comission>>(p, HttpStatus.CREATED);
 	}
-	
+
 	@PutMapping
-	public ResponseEntity<Mono<Comission>> update (@RequestBody Comission Comission){
+	public ResponseEntity<Mono<Comission>> update(@RequestBody Comission Comission) {
 		Mono<Comission> p = comissionService.update(Comission);
 		return new ResponseEntity<Mono<Comission>>(p, HttpStatus.CREATED);
 	}
-	
-    @DeleteMapping("/delete")
-    public ResponseEntity<Mono<Void>> delete(@RequestBody Comission Comission ){
-    	Mono<Void> p = comissionService.delete(Comission);
-        return new ResponseEntity<Mono<Void>>(p, HttpStatus.NO_CONTENT);
-    }
-    	
+
+	@DeleteMapping("/delete")
+	public ResponseEntity<Mono<Void>> delete(@RequestBody Comission Comission) {
+		Mono<Void> p = comissionService.delete(Comission);
+		return new ResponseEntity<Mono<Void>>(p, HttpStatus.NO_CONTENT);
+	}
+
 }

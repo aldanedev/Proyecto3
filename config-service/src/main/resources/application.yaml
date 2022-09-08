@@ -5,8 +5,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/aldanedev/bootcamp-nttdata
-          default-label: develop
+          uri: https://github.com/aldanedev/Proyecto3
+          default-label: main
           search-paths: config-data
           username: ${GIT_USERNAME}
           password: ${GIT_PASSWORD}

@@ -1,4 +1,4 @@
-package com.nttdata.customerservice.customers.domain;
+package pe.com.restapibank.models;
 
 public enum CustomerType {
   PERSONAL, BUSINESS, PERSONAL_VIP, BUSINESS_PYME;
