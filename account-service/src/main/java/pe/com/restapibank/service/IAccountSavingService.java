@@ -7,6 +7,7 @@ import reactor.core.publisher.Mono;
 public interface IAccountSavingService {
 	
 	Flux<AccountSaving> findAll();
+	Mono<AccountSaving> getById(Integer id);
 	Flux<AccountSaving> findById(Integer id);
 	Mono<AccountSaving> save(AccountSaving account_saving);
 	Mono<AccountSaving> saveAccSavingByClient(AccountSaving accountSaving);

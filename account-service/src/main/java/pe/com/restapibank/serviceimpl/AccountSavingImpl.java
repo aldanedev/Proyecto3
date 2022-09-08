@@ -39,6 +39,11 @@ public class AccountSavingImpl implements IAccountSavingService {
 	public Flux<AccountSaving> findById(Integer id) {
 		return iIAccountSavingRepository.findAll().filter(x -> x.getIdSaving().equals(id));
 	}
+	
+	@Override
+	public Mono<AccountSaving> getById(Integer id) {
+		return iIAccountSavingRepository.findById(id);
+	}
 
 	@Override
 	public Mono<AccountSaving> save(AccountSaving account_saving) {

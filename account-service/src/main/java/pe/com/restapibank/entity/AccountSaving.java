@@ -1,12 +1,14 @@
 package pe.com.restapibank.entity;
 
-import java.time.LocalDateTime;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Document(collection = "account_saving")
 public class AccountSaving {
 
@@ -16,7 +18,7 @@ public class AccountSaving {
     private String typeCurrency;
     private String typeAccount;
     private String accountNumber;
-    private LocalDateTime depositDate;
+    private String depositDate;
     private Double balance;
     private Double interest;
     private Integer idClient;
