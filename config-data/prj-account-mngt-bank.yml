@@ -1,12 +1,12 @@
 server: 
-    port: 8085
+  port: 8085
 spring:
   data:
     mongodb:
       host: localhost
       port: 27017
-      database: dbprojectbank
+      database: accounts_db
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:8082/eureka
+    serviceUrl:
+      defaultZone: ${REGISTRY_SERVICE_URL}
