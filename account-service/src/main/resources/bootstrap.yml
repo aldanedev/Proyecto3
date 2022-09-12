@@ -1,5 +1,5 @@
 spring:
   application:
-    name: prj-account-mngt-bank
+    name: accountService
   config:
     import: configserver:${CONFIG_SERVICE_URL}
